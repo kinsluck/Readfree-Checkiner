@@ -71,8 +71,9 @@ def login(email, password):
 
 
 # To verfy the login
+# Enter your username in the purl
 def is_login():
-    purl = 'http://readfree.me/accounts/profile/kinsluck/checkin/'
+    purl = 'http://readfree.me/accounts/profile/Your-username/checkin/'
     login_code = s.get(purl, headers=headers,
                        allow_redirects=False).status_code
     if login_code == 200:
