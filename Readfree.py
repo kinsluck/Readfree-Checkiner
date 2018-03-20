@@ -65,7 +65,7 @@ def login(email, password):
         'password': password,
         'captcha_1': get_captcha1(),
         'captcha_0': get_captcha0(),
-        }
+    }
     result = s.post(all_url, data=data, headers=headers)
     s.cookies.save(ignore_discard=False, ignore_expires=False)
 
@@ -73,9 +73,10 @@ def login(email, password):
 # To verfy the login
 # Enter your username in the purl
 def is_login():
-    purl = 'http://readfree.me/accounts/profile/Your-username/checkin/'
-    login_code = s.get(purl, headers=headers,
-                       allow_redirects=False).status_code
+    user_name=input('请输入你的用户名\n>  ')
+    purl = 'http://readfree.me/accounts/profile/'+str(user_name)+'/checkin/'
+    login_code = s.get(
+        purl, headers=headers, allow_redirects=False).status_code
     if login_code == 200:
         return True
     else:
@@ -99,6 +100,6 @@ if __name__ == '__main__':
         sign()
         print('签到成功')
     else:
-        account = input('请输入你的用户名\n>  ')
+        account = input('请输入你的邮箱\n>  ')
         secret = input("请输入你的密码\n>  ")
         login(account, secret)
