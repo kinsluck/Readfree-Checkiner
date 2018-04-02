@@ -1,16 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import os
 import requests
+from bs4 import BeautifulSoup
+from PIL import Image
+
 try:
     import cookielib
 except:
     import http.cookiejar as cookielib
-try:
-    from PIL import Image
-    from bs4 import BeautifulSoup
-except:
-    pass
 
 # 构造 Request headers
 agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Mobile Safari/537.36'
@@ -71,10 +69,15 @@ def login(email, password):
 
 
 # To verfy the login
-# Enter your username in the purl
 def is_login():
-    user_name=input('请输入你的用户名\n>  ')
-    purl = 'http://readfree.me/accounts/profile/'+str(user_name)+'/checkin/'
+    if os.path.isfile('username.txt'):
+        user_name = open('username.txt', 'r', encoding='utf-8').read()
+    else:
+        user_name = str(input('请输入你的用户名\n>  '))
+        with open('username.txt', 'w', encoding='utf-8') as f:
+            f.write(user_name)
+
+    purl = 'http://readfree.me/accounts/profile/' + user_name + '/checkin/'
     login_code = s.get(
         purl, headers=headers, allow_redirects=False).status_code
     if login_code == 200:
@@ -100,6 +103,8 @@ if __name__ == '__main__':
         sign()
         print('签到成功')
     else:
+        print('登录失败')
         account = input('请输入你的邮箱\n>  ')
-        secret = input("请输入你的密码\n>  ")
+        secret = input('请输入你的密码\n>  ')
         login(account, secret)
+        print('请再次运行此脚本')
