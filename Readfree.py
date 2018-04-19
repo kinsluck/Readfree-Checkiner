@@ -10,7 +10,7 @@ try:
 except:
     import http.cookiejar as cookielib
 
-# 构造 Request headers
+# Built Request headers.
 agent = 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Mobile Safari/537.36'
 headers = {
     "Host": "readfree.me",
@@ -18,7 +18,7 @@ headers = {
     'User-Agent': agent
 }
 
-# Get the soup and ready for cookie
+# Get the soup and try to fetch cookie.
 all_url = 'http://readfree.me/accounts/login/?next=/'
 s = requests.session()
 s.cookies = cookielib.LWPCookieJar(filename='cookies')
@@ -35,7 +35,7 @@ def get_csrf():
     _csrf = soup.find('input', {'name': 'csrfmiddlewaretoken'})['value']
     return _csrf
 
-
+# Show captcha image and input the code.
 def get_captcha1():
     curl = soup.find('img', {'class': 'captcha'})['src']
     captcha_url = 'http://readfree.me/captcha/image' + curl
@@ -56,7 +56,7 @@ def get_captcha0():
 
 
 def login(email, password):
-    # Post the login imformation to the server
+    # Post the login imformation to the server.
     data = {
         'csrfmiddlewaretoken': get_csrf(),
         'email': email,
@@ -68,7 +68,7 @@ def login(email, password):
     s.cookies.save(ignore_discard=False, ignore_expires=False)
 
 
-# To verfy the login
+# Verfy the login by status code.
 def is_login():
     if os.path.isfile('username.txt'):
         user_name = open('username.txt', 'r', encoding='utf-8').read()
