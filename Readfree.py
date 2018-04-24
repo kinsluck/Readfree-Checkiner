@@ -4,7 +4,6 @@ import os
 import requests
 from bs4 import BeautifulSoup
 from PIL import Image
-
 try:
     import cookielib
 except:
@@ -34,6 +33,7 @@ soup = BeautifulSoup(rq.text, 'lxml')
 def get_csrf():
     _csrf = soup.find('input', {'name': 'csrfmiddlewaretoken'})['value']
     return _csrf
+
 
 # Show captcha image and input the code.
 def get_captcha1():
