@@ -6,13 +6,13 @@ A simple script to check in [readfree.me](readfree.me).Based on Python 3.
 
 ## Usage
 
--Input your Email and password of your [readfree.me](readfree.me) account.
+- Input your Email and password of your [readfree.me](readfree.me) account.
 
--The script will generate a cookie file. You can continue your login with the cookie when the script runs next time.
+- The script will generate a cookie file. You can continue your login with the cookie when the script runs next time.
 
--The script will generate a username.txt file of your username to verfy the login status.
+- The script will generate a username.txt file of your username to verfy the login status.
 
--If you intend to change the login account, please delete both cookie file and username.txt file.
+- If you intend to change the login account, please delete both cookie file and username.txt file.
 
 ## Dependencies
 
