@@ -1,6 +1,12 @@
 # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
-# Created by https://www.gitignore.io/api/images,text
+# Created by https://www.gitignore.io/api/batch,images,text
+
+### Batch ###
+# BatchFiles
+*.bat
+*.cmd
+*.btm
 
 ### Images ###
 # JPEG
@@ -81,8 +87,7 @@
 # Cookies
 cookies
 
-
-# End of https://www.gitignore.io/api/images,text
+# End of https://www.gitignore.io/api/batch,images,text
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
 
