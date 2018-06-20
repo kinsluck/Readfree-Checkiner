@@ -6,7 +6,7 @@ A simple script to check in [readfree.me](http://www.readfree.me).Based on Pytho
 
 ## Usage
 
-- Input your Email and password of your [readfree.me](readfree.me) account.
+- Input your Email and password of your [readfree.me](http://www.readfree.me) account.
 
 - The script will generate a cookie file. You can continue your login with the cookie when the script runs next time.
 
