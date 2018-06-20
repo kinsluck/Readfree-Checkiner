@@ -1,8 +1,8 @@
 # Readfree-Checkiner
 
-A simple script to check in [readfree.me](readfree.me).Based on Python 3.
+A simple script to check in [readfree.me](http://www.readfree.me).Based on Python 3.
 
-一个用于[readfree.me](readfree.me)签到的脚本。基于 Python 3。
+一个用于[readfree.me](http://www.readfree.me)签到的脚本。基于 Python 3。
 
 ## Usage
 
